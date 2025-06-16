@@ -4,5 +4,5 @@ import 'dotenv/config'
 
 export default {
   earlyAccess: true,
-  schema: path.join('prisma', 'schema'),
+  schema: path.join('object-relational-mappers', 'prisma', 'schema'),
 } satisfies PrismaConfig;

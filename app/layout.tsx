@@ -1,4 +1,7 @@
+import Breadcrumbs from '@/components/general/breadcrumbs';
+import Header from '@/components/general/header';
 import { ThemeProvider } from '@/components/provider/theme-provider';
+import { Toaster } from '@/shadcn/components/ui/sonner';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
@@ -31,7 +34,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased container mx-auto`}
+        className={`${geistSans.variable} ${geistMono.variable} container mx-auto antialiased`}
       >
         <ThemeProvider
           attribute='class'
@@ -39,10 +42,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Header />
+          <Breadcrumbs />
+
           {children}
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
+        <Toaster />
       </body>
     </html>
   );
